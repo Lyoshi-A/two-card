@@ -74,11 +74,11 @@ export const runNewGame = (number, cards) => {
   winner.pairs = 0;
   winner.weight = [];
   winner.data = '';
-
+  const shuffled = shuffle(cards);
   return Array
     .from(Array(number).keys())
     .map((value, index) => {
-      const result = shuffle(cards)
+      const result = shuffled
         .slice(index * HAND_CARDS_COUNT, (index + 1) * HAND_CARDS_COUNT)
         .sort((a, b) => a - b);
       analysisHandResult(result, index);
